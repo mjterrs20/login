@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.bt_companyProfile:
-                String url = "http://www.hsji.kemenag.go.id";
+                String url = "http://www.haji.kemenag.go.id";
                 Intent browser = new Intent(Intent.ACTION_VIEW);
                 browser.setData(Uri.parse(url));
                 startActivity(browser);

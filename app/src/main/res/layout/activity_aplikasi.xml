@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ini Aplikasi Haji Pintar"
+        android:text="Ini Aplikasi Haji Cerdas"
         android:textStyle="bold"
         android:textColor="@color/orangeRed"
         android:fontFamily="casual"
