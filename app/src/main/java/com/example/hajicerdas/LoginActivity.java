@@ -80,11 +80,19 @@ public class LoginActivity extends AppCompatActivity{
     // for TextView yet not supported in Xml so i have done it programmatically)
     private void initCreateAccountTextView() {
         TextView textViewCreateAccount = (TextView) findViewById(R.id.textViewCreateAccount);
-        textViewCreateAccount.setText(fromHtml("<font color='#ffffff'>I don't have account yet. </font><font color='#0c0099'>create one</font>"));
         textViewCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView textViewLupaPass = (TextView) findViewById(R.id.textViewLupaPass);
+        textViewLupaPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
                 startActivity(intent);
             }
         });
@@ -117,17 +125,17 @@ public class LoginActivity extends AppCompatActivity{
         boolean valid = false;
 
         //Get values from EditText fields
-        String Email = editTextEmail.getText().toString();
+//        String Email = editTextEmail.getText().toString();
         String Password = editTextPassword.getText().toString();
 
         //Handling validation for Email field
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
-            valid = false;
-            textInputLayoutEmail.setError("Please enter valid email!");
-        } else {
-            valid = true;
-            textInputLayoutEmail.setError(null);
-        }
+//        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+//            valid = false;
+//            textInputLayoutEmail.setError("Please enter valid email!");
+//        } else {
+//            valid = true;
+//            textInputLayoutEmail.setError(null);
+//        }
 
         //Handling validation for Password field
         if (Password.isEmpty()) {

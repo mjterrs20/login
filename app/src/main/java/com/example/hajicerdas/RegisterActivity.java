@@ -47,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity{
 
                     //Check in the database is there any user associated with  this email
                     // Stoped check email
-                    /*if (!sqliteHelper.isEmailExists(Email)) {
+                    if (!sqliteHelper.isEmailExists(Email)) {
 
                         //Email does not exist now add new user to database
                         sqliteHelper.addUser(new User (null, UserName, Email, Password));
@@ -63,7 +63,6 @@ public class RegisterActivity extends AppCompatActivity{
                         //Email exists with email input provided so show error user already exist
                         Snackbar.make(buttonRegister, "User already exists with same email ", Snackbar.LENGTH_LONG).show();
                     }
-                    */
 
                 }
             }
@@ -116,14 +115,14 @@ public class RegisterActivity extends AppCompatActivity{
             }
         }
 
-        //Handling validation for Email field
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
-            valid = false;
-            textInputLayoutEmail.setError("Please enter valid email!");
-        } else {
-            valid = true;
-            textInputLayoutEmail.setError(null);
-        }
+//        //Handling validation for Email field
+//        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+//            valid = false;
+//            textInputLayoutEmail.setError("Please enter valid email!");
+//        } else {
+//            valid = true;
+//            textInputLayoutEmail.setError(null);
+//        }
 
         //Handling validation for Password field
         if (Password.isEmpty()) {
