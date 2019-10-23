@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HajiCerdas</string>
+    <string name="create_account"><font color="#00ff00">text</font></string>
+    <string name="noporsi">No Porsi</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="nama">Nama</string>
+    <string name="register">Register</string>
+    <string name="back_to_login">Back to Login</string>
+</resources>
