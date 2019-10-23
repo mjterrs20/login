@@ -46,7 +46,8 @@ public class RegisterActivity extends AppCompatActivity{
                     String Password = editTextPassword.getText().toString();
 
                     //Check in the database is there any user associated with  this email
-                    if (!sqliteHelper.isEmailExists(Email)) {
+                    // Stoped check email
+                    /*if (!sqliteHelper.isEmailExists(Email)) {
 
                         //Email does not exist now add new user to database
                         sqliteHelper.addUser(new User (null, UserName, Email, Password));
@@ -62,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity{
                         //Email exists with email input provided so show error user already exist
                         Snackbar.make(buttonRegister, "User already exists with same email ", Snackbar.LENGTH_LONG).show();
                     }
-
+                    */
 
                 }
             }
