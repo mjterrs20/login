@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nama"
+                android:fontFamily="casual"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
@@ -43,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/noporsi"
+                android:fontFamily="casual"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
@@ -60,6 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
+                android:fontFamily="casual"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
