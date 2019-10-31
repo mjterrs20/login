@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import model.User;
 import utils.SqliteHelper;
@@ -16,12 +17,15 @@ public class RegisterActivity extends AppCompatActivity{
 
     //Declaration EditTexts
     EditText editTextUserName;
-    EditText editTextEmail;
+    EditText editTextNohp;
+    EditText editTextNoporsi;
     EditText editTextPassword;
 
     //Declaration TextInputLayout
+
     TextInputLayout textInputLayoutUserName;
-    TextInputLayout textInputLayoutEmail;
+    TextInputLayout textInputLayoutNohp;
+    TextInputLayout textInputLayoutNoporsi;
     TextInputLayout textInputLayoutPassword;
 
     //Declaration Button
@@ -42,16 +46,20 @@ public class RegisterActivity extends AppCompatActivity{
             public void onClick(View view) {
                 if (validate()) {
                     String UserName = editTextUserName.getText().toString();
-                    String Email = editTextEmail.getText().toString();
+                    String Nohp = editTextNohp.getText ().toString ();
+                    String Noporsi = editTextNoporsi.getText().toString();
                     String Password = editTextPassword.getText().toString();
 
                     //Check in the database is there any user associated with  this email
                     // Stoped check email
-                    if (!sqliteHelper.isEmailExists(Email)) {
+                    if (!sqliteHelper.isEmailExists(Noporsi)) {
+
 
                         //Email does not exist now add new user to database
-                        sqliteHelper.addUser(new User (null, UserName, Email, Password));
+                        sqliteHelper.addUser(new User (null, UserName, Nohp, Noporsi, Password));
                         Snackbar.make(buttonRegister, "User created successfully! Please Login ", Snackbar.LENGTH_LONG).show();
+                        System.out.print ( "check" );
+//                        Toast.makeText(getApplicationContext(),"Berhasil Terdaftar",Toast.LENGTH_SHORT).show();
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -82,12 +90,14 @@ public class RegisterActivity extends AppCompatActivity{
 
     //this method is used to connect XML views to its Objects
     private void initViews() {
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextNoporsi = (EditText) findViewById(R.id.editTextNoporsi);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextUserName = (EditText) findViewById(R.id.editTextUserName);
-        textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
+        editTextNohp = (EditText) findViewById(R.id.editTextNohp);
+        textInputLayoutNoporsi = (TextInputLayout) findViewById(R.id.textInputLayoutNoporsi);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         textInputLayoutUserName = (TextInputLayout) findViewById(R.id.textInputLayoutUserName);
+        textInputLayoutNohp = (TextInputLayout) findViewById(R.id.textInputLayoutNohp);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
     }
@@ -98,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity{
 
         //Get values from EditText fields
         String UserName = editTextUserName.getText().toString();
-        String Email = editTextEmail.getText().toString();
+        String Noporsi = editTextNoporsi.getText().toString();
         String Password = editTextPassword.getText().toString();
 
         //Handling validation for UserName field

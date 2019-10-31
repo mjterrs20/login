@@ -18,11 +18,11 @@ import utils.SqliteHelper;
 public class LoginActivity extends AppCompatActivity{
 
     //Declaration EditTexts
-    EditText editTextEmail;
+    EditText editTextNoporsi;
     EditText editTextPassword;
 
     //Declaration TextInputLayout
-    TextInputLayout textInputLayoutEmail;
+    TextInputLayout textInputLayoutNoporsi;
     TextInputLayout textInputLayoutPassword;
 
     //Declaration Button
@@ -46,29 +46,10 @@ public class LoginActivity extends AppCompatActivity{
 
                 //Check user input is correct or not
                 if (validate()) {
+                    Intent intent=new Intent (LoginActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
 
-                    //Get values from EditText fields
-                    String Email = editTextEmail.getText().toString();
-                    String Password = editTextPassword.getText().toString();
-
-                    //Authenticate user
-                    User currentUser = sqliteHelper.Authenticate(new User(null, null, Email, Password));
-
-                    //Check Authentication is successful or not
-                    if (currentUser != null) {
-                        Snackbar.make(buttonLogin, "Successfully Logged in!", Snackbar.LENGTH_LONG).show();
-
-                        //User Logged in Successfully Launch You home screen activity
-                        Intent intent=new Intent (LoginActivity.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-
-                    } else {
-
-                        //User Logged in Failed
-                        Snackbar.make(buttonLogin, "Failed to log in , please try again", Snackbar.LENGTH_LONG).show();
-
-                    }
                 }
             }
         });
@@ -79,14 +60,14 @@ public class LoginActivity extends AppCompatActivity{
     //this method used to set Create account TextView text and click event( maltipal colors
     // for TextView yet not supported in Xml so i have done it programmatically)
     private void initCreateAccountTextView() {
-        TextView textViewCreateAccount = (TextView) findViewById(R.id.textViewCreateAccount);
-        textViewCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
+//        TextView textViewCreateAccount = (TextView) findViewById(R.id.textViewCreateAccount);
+//        textViewCreateAccount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         TextView textViewLupaPass = (TextView) findViewById(R.id.textViewLupaPass);
         textViewLupaPass.setOnClickListener(new View.OnClickListener() {
@@ -100,9 +81,9 @@ public class LoginActivity extends AppCompatActivity{
 
     //this method is used to connect XML views to its Objects
     private void initViews() {
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextNoporsi = (EditText) findViewById(R.id.editTextNoporsi);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
+        textInputLayoutNoporsi = (TextInputLayout) findViewById(R.id.textInputLayoutNoporsi);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
 
@@ -124,30 +105,34 @@ public class LoginActivity extends AppCompatActivity{
     public boolean validate() {
         boolean valid = false;
 
-        //Get values from EditText fields
-//        String Email = editTextEmail.getText().toString();
+
+        String Noporsi =  editTextNoporsi.getText().toString();
         String Password = editTextPassword.getText().toString();
 
-        //Handling validation for Email field
-//        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
-//            valid = false;
-//            textInputLayoutEmail.setError("Please enter valid email!");
-//        } else {
-//            valid = true;
-//            textInputLayoutEmail.setError(null);
-//        }
+        if (Noporsi.isEmpty()) {
+            valid = false;
+            textInputLayoutNoporsi.setError("Masukkan No Porsi Anda");
+        } else {
+            if (Noporsi.equals ( "1300498134" ) ) {
+                valid = true;
+                textInputLayoutNoporsi.setError(null);
+            } else {
+                valid = false;
+                textInputLayoutNoporsi.setError("No porsi Salah");
+            }
+        }
 
-        //Handling validation for Password field
+
         if (Password.isEmpty()) {
             valid = false;
             textInputLayoutPassword.setError("Please enter valid password!");
         } else {
-            if (Password.length() > 5) {
+            if (Password.equals ( "123456789" ) ) {
                 valid = true;
                 textInputLayoutPassword.setError(null);
             } else {
                 valid = false;
-                textInputLayoutPassword.setError("Password is to short!");
+                textInputLayoutPassword.setError("Password Salah");
             }
         }
 
