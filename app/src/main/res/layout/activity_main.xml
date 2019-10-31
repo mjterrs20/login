@@ -8,6 +8,48 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="224dp"
+        android:src="@drawable/log" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Haji Cerdas"
+        android:gravity="center"
+        android:fontFamily="cursive"
+        android:textSize="30dp"
+        android:textColor="@color/orangeRed"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="develop by"
+        android:gravity="center"
+        android:fontFamily="cursive"
+        android:textColor="@color/orangeRed"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aidia Oemami (1167050013)"
+        android:gravity="center"
+        android:fontFamily="cursive"
+        android:textColor="@color/orangeRed"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Muhammad Rizki Aditia (1167050106)"
+        android:gravity="center"
+        android:fontFamily="cursive"
+        android:textColor="@color/orangeRed"
+        android:textStyle="bold"
+        />
     <Button
         android:id="@+id/bt_companyProfile"
         android:layout_width="match_parent"
